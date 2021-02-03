@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/main.css" />
+    <title>To Do</title>
+  </head>
+  <body>
+    <h1>Dagens To Do-Lista</h1>
+
+    <%- include("add-data.ejs") %>
+
+    <% for(let i= 0; i<data.length; i++){ %>
+        <div>
+            <%= data[i].name %>
+            <span> to do item name </span>
+        </div>
+    <% } %>
+  </body>
+</html>
