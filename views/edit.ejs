@@ -1,0 +1,6 @@
+<form action="/edit" method="POST">
+  <input type="text" name="name" id="editInput" value="<%= task.name %>" />
+  <input type="text" name="id" value="<%= task.id %>" hidden />
+
+  <button type="submit" id="editButton">Update</button>
+</form>

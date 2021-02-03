@@ -11,10 +11,13 @@
 
     <%- include("add-data.ejs") %>
 
-    <% for(let i= 0; i<data.length; i++){ %>
+    <% for(let i= 0; i<data.length; i++){ %> <!-- loopar igenom data (array) -->
         <div>
             <%= data[i].name %>
-            <span> to do item name </span>
+            
+            <a href="/edit/<%= data[i]._id %>"> edit </a> 
+
+            <a href="/delete/<%= data[i]._id %>"> delete </a> 
         </div>
     <% } %>
   </body>
