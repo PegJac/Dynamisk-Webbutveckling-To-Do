@@ -29,4 +29,37 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.get("/edit/:id", async (req, res) => {
+    try {
+        const data = await Task.find()
+        const editTask = await Task.findById({ _id: req.params.id })
+        res.render("edit.ejs", { editTask, error: "empty", data })
+    } catch (err) {
+        res.render("error.ejs", { error: err })
+    }
+})
+
+router.post("/edit", async (req, res) => {
+    try {
+        console.log(req.body)
+        await Task.updateOne({ _id: req.body.id }, {
+            name: req.body.name
+        })
+        res.redirect("/")
+
+    } catch (err) {
+        res.render("error.ejs", { error: err })
+    }
+})
+
+router.get('/delete/:id', async (req, res) => {
+    try {
+        const data = await Task.deleteOne({ _id: req.params.id })
+        res.redirect("/")
+    }
+    catch (err) {
+        res.render("error.ejs", { error: err })
+    }
+})
+
 module.exports = router;

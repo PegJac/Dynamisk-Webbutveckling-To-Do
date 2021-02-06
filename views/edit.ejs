@@ -1,6 +1,37 @@
-<form action="/edit" method="POST">
-  <input type="text" name="name" id="editInput" value="<%= task.name %>" />
-  <input type="text" name="id" value="<%= task.id %>" hidden />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/main.css" />
+    <title>To Do</title>
+  </head>
+  <body>
+    <h1>Dagens To Do-Lista</h1>
 
-  <button type="submit" id="editButton">Update</button>
-</form>
+    <%- include("add-data.ejs") %>
+    <% if (error!== "empty") { %>
+      <%- include("error.ejs") %>
+    <% } %>
+    
+    <% for(let i= 0; i<data.length; i++){ %> <!-- loopar igenom data (array) -->
+        <div>
+
+          <% if (data[i].id == editTask.id) {%>
+            <form action="/edit" method="POST">
+              <input type="text" name="name" id="editInput" value="<%= editTask.name %>" placeholder="<%=editTask.name%>"/>
+              <input type="text" name="id" value="<%= editTask.id %>" hidden />
+            
+              <button type="submit" id="editButton">Update</button>
+            </form>
+          <% } else { %>
+            <%= data[i].name %>
+            <a href="/edit/<%= data[i]._id %>"> edit </a> 
+            <a href="/delete/<%= data[i]._id%>"> delete </a> 
+          <% } %>
+        </div>
+    <% } %>
+  </body>
+</html>
+
+
