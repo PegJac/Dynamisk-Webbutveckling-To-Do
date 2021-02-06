@@ -1,17 +1,24 @@
 const express = require('express')
-const bodyParser = require("body-parser") // gör så vi kan läsa data från ejs/annan template
-const mongoose = require("mongoose") //möjliggör connection till mongoDB
+const bodyParser = require("body-parser")
+const mongoose = require("mongoose")
 const Task = require('./models/task')
+const path = require('path')
 require("dotenv").config();
 
 const tasks = require('./routes/tasks')
 const { updateOne } = require('./models/task')
 const app = express()
 
+const nodeSass = require('node-sass-middleware')
+app.use(nodeSass({
+    src: path.join(__dirname, "scss"),
+    dest: path.join(__dirname, "/public/style")
+}))
+
 app.use(express.json())
-app.use(express.static(__dirname + "/public")) //för statiska filer
-app.use(bodyParser.urlencoded({ extended: false })) //middleware, hanterat all data från req.body via ejs - konverterar till javascript object (parse:ar)
-app.use('/routes/tasks', tasks);
+app.use(express.static(__dirname + "/public"))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use('/', tasks);
 
 app.set("view engine", "ejs")
 

@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 const TaskSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        minlength: 2,
+        maxlength: 30,
+        lowercase: true
     }, date: {
         type: Date,
         default: Date.now
