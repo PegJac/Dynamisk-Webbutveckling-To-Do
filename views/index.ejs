@@ -10,14 +10,16 @@
     <h1>Dagens To Do-Lista</h1>
 
     <%- include("add-data.ejs") %>
+    <% if (error!== "empty") { %>
+      <%- include("error.ejs") %>
+    <% } %>
 
     <% for(let i= 0; i<data.length; i++){ %> <!-- loopar igenom data (array) -->
         <div>
             <%= data[i].name %>
             
             <a href="/edit/<%= data[i]._id %>"> edit </a> 
-
-            <a href="/delete/<%= data[i]._id %>"> delete </a> 
+            <a href="/delete/<%= data[i]._id%>"> delete </a> 
         </div>
     <% } %>
   </body>
