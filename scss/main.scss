@@ -1,0 +1,117 @@
+@import './partials';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    background-image: linear-gradient(120deg, #000b19, #00172D, #001e3d, #00172D,#001023);
+    min-height: 100vh;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    main {
+        display: flex;
+        flex-direction: column;
+        padding: 2vh 10%;
+
+        .emptyList{
+            padding: 0;
+            width: 80%;
+            height: 40vh;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.592);
+        }
+
+
+        .taskUl {            
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+            list-style: none;
+
+            li{
+                display: flex;
+                justify-content: flex-end;
+                margin: 5px 0;
+
+                &:nth-child(odd){
+                    background: rgba(10, 14, 34, 0.200);
+                    box-shadow: 0px 0px 5px 3px rgba(10, 14, 34, 0.200);
+                }
+
+                p {
+                    margin: 0;
+                    margin-right: auto;                
+                }
+    
+                a {
+                    text-decoration: none;
+                    padding: 2px 5px;      
+                    margin-left: 10px;
+                    @include button;
+                    @include hoverGlow;
+                }
+            }
+
+            .editForm {
+                display: flex;
+                justify-content: flex-end;
+                margin: 5px 0;
+                
+                #editInput {
+                    margin: 0;
+                    margin-right: auto;  
+                    max-width: 50%;
+                    border: none;
+                    border-bottom: 2px solid rgba(184, 253, 255, 0.755);
+                    color: rgba(255, 255, 255, 0.353);
+                    background: none;
+                    box-shadow: 0px 8px 8px -4px rgba(184, 253, 255, 0);
+                }
+
+                button { 
+                    padding: 2px 5px; 
+                    width: 120px;   
+                    @include button;
+                    @include hoverGlow;
+
+                }            
+            }
+        }
+
+        .bottomPage {
+            display: flex;
+            justify-content: flex-end;
+
+            .paginationBtn {
+                margin: 0;
+                margin-right: auto;
+                text-decoration: none;
+                padding: 2px 5px;
+                width: 110px;  
+                @include button;
+                @include hoverGlow;
+            }
+    
+            .dropdown {
+                .sortButton {
+                    @include button;
+                    @include hoverGlow;
+                }
+    
+                .sortMenu {
+                    text-align: end;
+                }
+            }
+        }
+    }
+}

@@ -1,44 +1,34 @@
 const express = require('express')
 const bodyParser = require("body-parser")
+const nodeSass = require('node-sass-middleware')
 const mongoose = require("mongoose")
-const Task = require('./models/task')
+const path = require('path')
+require("dotenv").config();
 
-const tasks = require('./routes/tasks')
+const routes = require('./routes/tasks')
 const app = express()
+
+app.use(nodeSass({
+    src: path.join(__dirname, "scss/"),
+    dest: path.join(__dirname, "public/style")
+}))
 
 app.use(express.json())
 app.use(express.static(__dirname + "/public"))
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use('/routes/tasks', tasks);
+app.use('/', routes);
 
 app.set("view engine", "ejs")
 
-app.get("/", async (req, res) => {
-
-    const data = await Task.find()
-
-    res.render("index.ejs", { data: data })
-})
-
-app.post("/", async (req, res) => {
-    console.log(req.body.name)
-
-    await new Task({
-        name: req.body.name
-    }).save()
-
-    res.redirect("/")
-})
-
-mongoose.connect("DB", {
+mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, (err) => {
-    console.log(err)
-    if (err) return;
+    if (err) console.log(err).return;
     console.log("Connected to DB")
 
-    app.listen(8000, (err) => {
+    app.listen(process.env.PORT || 8080, (err) => {
         console.log("app körs i 8000")
+        if (err) console.log(err).return;
     })
 })
