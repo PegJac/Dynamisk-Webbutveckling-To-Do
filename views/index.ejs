@@ -25,42 +25,42 @@
       <% } else { %>
 
         <% if (error!== "empty") { %>
-          <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Error:</strong> <%= error %>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         <% } %>
 
-    <ul class="taskUl">
-      <% for(let i= 0; i<data.length; i++){ %> <!-- loopar igenom data (array) -->
-          <li> 
-            <p> <%= data[i].name %>  </p>
-            <a href="/edit/<%= data[i]._id %>"> Edit </a> 
-            <a href="/delete/<%= data[i]._id%>"> Delete </a> 
-          </li>
-      <% } %>
-    </ul>
+        <ul class="taskUl">
+          <% for(let i= 0; i<data.length; i++){ %>
+              <li> 
+                <p> <%= data[i].name %> </p>
+                <a href="/edit/<%= data[i]._id %>"> Edit </a> 
+                <a href="/delete/<%= data[i]._id%>"> Delete </a> 
+              </li>
+          <% } %>
+        </ul>
 
-    <div class="bottomPage">
-      <% if(numberOfTasks > numberOfTasksToDisplayPerReq) { %>
-        <% if(numberOfPages !== dataToShow/numberOfTasksToDisplayPerReq) { %>
-          <a class="paginationBtn" href="/?page= <%=(dataToShow/numberOfTasksToDisplayPerReq) +1%>">Visa fler</a>
-        <% } else { %>
-          <a class="paginationBtn" href="/?page=1">Visa färre</a>
-        <% } %>
-        <% } %>
-  
-        <div class="dropdown">
-          <a class="btn btn-secondary btn-sm dropdown-toggle sortButton" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort
-          </a>
-        
-          <ul class="dropdown-menu sortMenu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="/?page= <%=(dataToShow/numberOfTasksToDisplayPerReq)%>&&sort=-1"> Newest </a></li>
-            <li><a class="dropdown-item" href="/?page= <%=(dataToShow/numberOfTasksToDisplayPerReq)%>&&sort=1"> Oldest </a></li>
-          </ul>
+        <div class="bottomPage">
+          <% if(numberOfTasks > numberOfTasksToDisplayPerReq) { %>
+            <% if(numberOfPages !== dataToShow/numberOfTasksToDisplayPerReq) { %>
+              <a class="paginationBtn" href="/?page= <%=(dataToShow/numberOfTasksToDisplayPerReq) +1%>"> Show more </a>
+            <% } else { %>
+              <a class="paginationBtn" href="/?page=1"> Show less </a>
+            <% } %>
+            <% } %>
+      
+            <div class="dropdown">
+              <a class="btn btn-secondary btn-sm dropdown-toggle sortButton" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort
+              </a>
+            
+              <ul class="dropdown-menu sortMenu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="/?page= <%=(dataToShow/numberOfTasksToDisplayPerReq)%>&&sort=-1"> Newest </a></li>
+                <li><a class="dropdown-item" href="/?page= <%=(dataToShow/numberOfTasksToDisplayPerReq)%>&&sort=1"> Oldest </a></li>
+              </ul>
+            </div>
         </div>
-    </div>
       <% } %>
     </main>
   </body>

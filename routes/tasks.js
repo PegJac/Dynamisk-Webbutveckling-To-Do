@@ -20,7 +20,8 @@ router.get('/', async (req, res) => {
             numberOfTasks,
             numberOfTasksToDisplayPerReq,
             numberOfPages,
-            dataToShow
+            dataToShow,
+            sort
         })
     }
     catch (err) {
@@ -34,7 +35,7 @@ router.post('/', async (req, res) => {
         await new Task({
             name: req.body.name
         }).save()
-        res.redirect("/")
+        res.redirect("/?")
     }
     catch (err) {
         const sort = + req.query.sort || 1
@@ -101,7 +102,7 @@ router.post("/edit", async (req, res) => {
 
 router.get('/delete/:id', async (req, res) => {
     try {
-        const data = await Task.deleteOne({ _id: req.params.id })
+        await Task.deleteOne({ _id: req.params.id })
         res.redirect("/")
     }
     catch (err) {

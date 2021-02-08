@@ -6,7 +6,6 @@ const path = require('path')
 require("dotenv").config();
 
 const routes = require('./routes/tasks')
-const { updateOne } = require('./models/task')
 const app = express()
 
 app.use(nodeSass({
@@ -21,7 +20,6 @@ app.use('/', routes);
 
 app.set("view engine", "ejs")
 
-//connection string
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -34,16 +32,3 @@ mongoose.connect(process.env.DATABASE_URL, {
         if (err) console.log(err).return;
     })
 })
-
-
-
-/* <% if (data[i]._id == data) {%>
-  <% console.log("tasken är" + data) %>
-  <% } %>
-
- <form action="/edit" method="POST">
-  <input type="text" name="name" id="editInput" value="<%= data.name %>" />
-  <input type="text" name="id" value="<%= data.id %>" hidden />
-
-  <button type="submit" id="editButton">Update</button>
-</form> */
