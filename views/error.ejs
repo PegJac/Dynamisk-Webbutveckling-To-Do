@@ -1,5 +1,4 @@
-<%= error %>
-<% if(error !== undefined){ %> <!--om det finns ett error-->
+<% if(error !== undefined || null){ %>
     <%= error %> <!--visa error-->
     <a href="/"> Go to home page</a>
 <% } %>

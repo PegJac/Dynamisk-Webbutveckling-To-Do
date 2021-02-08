@@ -4,11 +4,24 @@ const mongoose = require("mongoose")
 const Task = require('../models/task');
 
 router.get('/', async (req, res) => {
-    const sorted = +req.query.page;
+    const sort = + req.query.sort || 1
+    const page = + req.query.page || 1
 
     try {
-        const data = await Task.find()/*.sort({ name: page })*/
-        res.render('index.ejs', { data, error: "empty" })
+        const numberOfTasks = await Task.find().countDocuments();
+        const numberOfTasksToDisplayPerReq = 5;
+        const numberOfPages = Math.ceil(numberOfTasks / numberOfTasksToDisplayPerReq)
+        const dataToShow = numberOfTasksToDisplayPerReq * page
+
+        const data = await Task.find().limit(dataToShow).sort({ date: sort })
+        res.render('index.ejs', {
+            data,
+            error: "empty",
+            numberOfTasks,
+            numberOfTasksToDisplayPerReq,
+            numberOfPages,
+            dataToShow
+        })
     }
     catch (err) {
         res.render("error.ejs", { error: err })
@@ -24,16 +37,50 @@ router.post('/', async (req, res) => {
         res.redirect("/")
     }
     catch (err) {
+        const sort = + req.query.sort || 1
+        const page = + req.query.page || 1
+
+        const numberOfTasks = await Task.find().countDocuments();
+        const numberOfTasksToDisplayPerReq = 5;
+        const numberOfPages = Math.ceil(numberOfTasks / numberOfTasksToDisplayPerReq)
+        const dataToShow = numberOfTasksToDisplayPerReq * page
+
+        const data = await Task.find().limit(dataToShow).sort({ date: sort })
+
         console.log(err)
-        res.render("error.ejs", { error: err })
+        res.render("error.ejs", {
+            error: err,
+            data,
+            numberOfTasks,
+            numberOfTasksToDisplayPerReq,
+            numberOfPages,
+            dataToShow
+        })
     }
 })
 
 router.get("/edit/:id", async (req, res) => {
     try {
+        const sort = + req.query.sort || 1
+        const page = + req.query.page || 1
+
+        const numberOfTasks = await Task.find().countDocuments();
+        const numberOfTasksToDisplayPerReq = 5;
+        const numberOfPages = Math.ceil(numberOfTasks / numberOfTasksToDisplayPerReq)
+        const dataToShow = numberOfTasksToDisplayPerReq * page
+
+
         const data = await Task.find()
         const editTask = await Task.findById({ _id: req.params.id })
-        res.render("edit.ejs", { editTask, error: "empty", data })
+        res.render("edit.ejs", {
+            editTask,
+            error: "empty",
+            data,
+            numberOfTasks,
+            numberOfTasksToDisplayPerReq,
+            numberOfPages,
+            dataToShow
+        })
     } catch (err) {
         res.render("error.ejs", { error: err })
     }

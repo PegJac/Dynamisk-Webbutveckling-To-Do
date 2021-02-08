@@ -1,23 +1,23 @@
 const express = require('express')
 const bodyParser = require("body-parser")
+const nodeSass = require('node-sass-middleware')
 const mongoose = require("mongoose")
 const path = require('path')
 require("dotenv").config();
 
-const router = require('./routes/tasks')
+const routes = require('./routes/tasks')
 const { updateOne } = require('./models/task')
 const app = express()
 
-const nodeSass = require('node-sass-middleware')
 app.use(nodeSass({
-    src: path.join(__dirname, "scss"),
-    dest: path.join(__dirname, "/public/style")
+    src: path.join(__dirname, "scss/"),
+    dest: path.join(__dirname, "public/style")
 }))
 
 app.use(express.json())
 app.use(express.static(__dirname + "/public"))
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use('/', router);
+app.use('/', routes);
 
 app.set("view engine", "ejs")
 

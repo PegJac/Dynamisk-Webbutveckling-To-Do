@@ -1,0 +1,151 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10%; }
+  header h1 {
+    width: 100%;
+    text-align: center;
+    margin: 20px; }
+  header .addDataContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1vh;
+    width: 100%; }
+    header .addDataContainer form {
+      display: flex;
+      justify-content: space-between;
+      width: 100%; }
+      header .addDataContainer form #addTaskInput {
+        width: 70%;
+        border: none;
+        border-bottom: 2px solid rgba(184, 253, 255, 0.755);
+        color: white;
+        background: none;
+        box-shadow: 0px 8px 8px -4px rgba(184, 253, 255, 0);
+        transition: 0.3s; }
+        header .addDataContainer form #addTaskInput:hover {
+          border-bottom: 2.5px solid #c9fdff; }
+      header .addDataContainer form #addTaskButton {
+        width: 25%;
+        border: 2px solid #b8fdff;
+        box-shadow: 0px 0px 8px 5px rgba(10, 14, 34, 0.707);
+        border-radius: 5px;
+        color: white;
+        background: none;
+        transition: 0.3s; }
+        header .addDataContainer form #addTaskButton:hover {
+          border: 2px solid #b8fdff;
+          box-shadow: 0px 0px 8px 5px rgba(184, 253, 255, 0.299); }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  color: white;
+  background-image: linear-gradient(120deg, #001023, #00172D, #001e3d, #00172D, #001023);
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+  body main {
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 10%; }
+    body main .emptyList {
+      padding: 0;
+      width: 80%;
+      height: 40vh;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.592); }
+    body main .taskUl {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      list-style: none; }
+      body main .taskUl li {
+        display: flex;
+        justify-content: flex-end;
+        margin: 5px 0; }
+        body main .taskUl li:nth-child(odd) {
+          background: rgba(10, 14, 34, 0.2);
+          box-shadow: 0px 0px 5px 3px rgba(10, 14, 34, 0.2); }
+        body main .taskUl li p {
+          margin: 0;
+          margin-right: auto; }
+        body main .taskUl li a {
+          text-decoration: none;
+          padding: 2px 5px;
+          margin-left: 10px;
+          border: 2px solid #b8fdff;
+          box-shadow: 0px 0px 8px 5px rgba(10, 14, 34, 0.707);
+          border-radius: 5px;
+          color: white;
+          background: none;
+          transition: 0.3s; }
+          body main .taskUl li a:hover {
+            border: 2px solid #b8fdff;
+            box-shadow: 0px 0px 8px 5px rgba(184, 253, 255, 0.299); }
+      body main .taskUl .editForm {
+        display: flex;
+        justify-content: flex-end;
+        margin: 5px 0; }
+        body main .taskUl .editForm #editInput {
+          margin: 0;
+          margin-right: auto;
+          max-width: 50%;
+          border: none;
+          border-bottom: 2px solid rgba(184, 253, 255, 0.755);
+          color: rgba(255, 255, 255, 0.353);
+          background: none;
+          box-shadow: 0px 8px 8px -4px rgba(184, 253, 255, 0); }
+        body main .taskUl .editForm button {
+          padding: 2px 5px;
+          width: 106px;
+          border: 2px solid #b8fdff;
+          box-shadow: 0px 0px 8px 5px rgba(10, 14, 34, 0.707);
+          border-radius: 5px;
+          color: white;
+          background: none;
+          transition: 0.3s; }
+          body main .taskUl .editForm button:hover {
+            border: 2px solid #b8fdff;
+            box-shadow: 0px 0px 8px 5px rgba(184, 253, 255, 0.299); }
+    body main .bottomPage {
+      display: flex;
+      justify-content: flex-end; }
+      body main .bottomPage .paginationBtn {
+        margin: 0;
+        margin-right: auto;
+        text-decoration: none;
+        padding: 2px 5px;
+        width: 100px;
+        border: 2px solid #b8fdff;
+        box-shadow: 0px 0px 8px 5px rgba(10, 14, 34, 0.707);
+        border-radius: 5px;
+        color: white;
+        background: none;
+        transition: 0.3s; }
+        body main .bottomPage .paginationBtn:hover {
+          border: 2px solid #b8fdff;
+          box-shadow: 0px 0px 8px 5px rgba(184, 253, 255, 0.299); }
+      body main .bottomPage .dropdown .sortButton {
+        border: 2px solid #b8fdff;
+        box-shadow: 0px 0px 8px 5px rgba(10, 14, 34, 0.707);
+        border-radius: 5px;
+        color: white;
+        background: none;
+        transition: 0.3s; }
+        body main .bottomPage .dropdown .sortButton:hover {
+          border: 2px solid #b8fdff;
+          box-shadow: 0px 0px 8px 5px rgba(184, 253, 255, 0.299); }
+      body main .bottomPage .dropdown .sortMenu {
+        text-align: end; }
