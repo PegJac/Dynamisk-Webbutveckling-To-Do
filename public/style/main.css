@@ -34,8 +34,7 @@ header {
         box-shadow: 0px 0px 8px 5px rgba(10, 14, 34, 0.707);
         border-radius: 5px;
         color: white;
-        background: none;
-        transition: 0.3s; }
+        background: none; }
         header .addDataContainer form #addTaskButton:hover {
           border: 2px solid #b8fdff;
           box-shadow: 0px 0px 8px 5px rgba(184, 253, 255, 0.299); }
@@ -89,8 +88,7 @@ body {
           box-shadow: 0px 0px 8px 5px rgba(10, 14, 34, 0.707);
           border-radius: 5px;
           color: white;
-          background: none;
-          transition: 0.3s; }
+          background: none; }
           body main .taskUl li a:hover {
             border: 2px solid #b8fdff;
             box-shadow: 0px 0px 8px 5px rgba(184, 253, 255, 0.299); }
@@ -114,8 +112,7 @@ body {
           box-shadow: 0px 0px 8px 5px rgba(10, 14, 34, 0.707);
           border-radius: 5px;
           color: white;
-          background: none;
-          transition: 0.3s; }
+          background: none; }
           body main .taskUl .editForm button:hover {
             border: 2px solid #b8fdff;
             box-shadow: 0px 0px 8px 5px rgba(184, 253, 255, 0.299); }
@@ -132,8 +129,7 @@ body {
         box-shadow: 0px 0px 8px 5px rgba(10, 14, 34, 0.707);
         border-radius: 5px;
         color: white;
-        background: none;
-        transition: 0.3s; }
+        background: none; }
         body main .bottomPage .paginationBtn:hover {
           border: 2px solid #b8fdff;
           box-shadow: 0px 0px 8px 5px rgba(184, 253, 255, 0.299); }
@@ -142,8 +138,7 @@ body {
         box-shadow: 0px 0px 8px 5px rgba(10, 14, 34, 0.707);
         border-radius: 5px;
         color: white;
-        background: none;
-        transition: 0.3s; }
+        background: none; }
         body main .bottomPage .dropdown .sortButton:hover {
           border: 2px solid #b8fdff;
           box-shadow: 0px 0px 8px 5px rgba(184, 253, 255, 0.299); }

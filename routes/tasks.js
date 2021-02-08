@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
         })
     }
     catch (err) {
-        res.render("error.ejs", { error: err })
+        res.render("index.ejs", { error: err })
     }
 })
 
@@ -48,7 +48,7 @@ router.post('/', async (req, res) => {
         const data = await Task.find().limit(dataToShow).sort({ date: sort })
 
         console.log(err)
-        res.render("error.ejs", {
+        res.render("index.ejs", {
             error: err,
             data,
             numberOfTasks,
@@ -82,7 +82,7 @@ router.get("/edit/:id", async (req, res) => {
             dataToShow
         })
     } catch (err) {
-        res.render("error.ejs", { error: err })
+        res.render("index.ejs", { error: err })
     }
 })
 
@@ -95,7 +95,7 @@ router.post("/edit", async (req, res) => {
         res.redirect("/")
 
     } catch (err) {
-        res.render("error.ejs", { error: err })
+        res.render("edit.ejs", { error: err })
     }
 })
 
@@ -105,7 +105,7 @@ router.get('/delete/:id', async (req, res) => {
         res.redirect("/")
     }
     catch (err) {
-        res.render("error.ejs", { error: err })
+        res.render("index.ejs", { error: err })
     }
 })
 
