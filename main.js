@@ -30,7 +30,7 @@ app.post("/", async (req, res) => {
     res.redirect("/")
 })
 
-mongoose.connect("mongodb+srv://peggyj:MangoMania69@cluster0.bphuo.mongodb.net/toDoDB?retryWrites=true&w=majority", {
+mongoose.connect("DB", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, (err) => {
