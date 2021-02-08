@@ -8,7 +8,7 @@
 
 body {
     color: white;
-    background-image: linear-gradient(120deg, #001023, #00172D, #001e3d, #00172D,#001023);
+    background-image: linear-gradient(120deg, #000b19, #00172D, #001e3d, #00172D,#001023);
     min-height: 100vh;
     background-size: cover; 
     background-repeat: no-repeat;
@@ -80,7 +80,7 @@ body {
 
                 button { 
                     padding: 2px 5px; 
-                    width: 106px;   
+                    width: 120px;   
                     @include button;
                     @include hoverGlow;
 
