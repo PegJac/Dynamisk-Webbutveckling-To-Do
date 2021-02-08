@@ -6,8 +6,7 @@ const TaskSchema = new Schema({
         type: String,
         required: true,
         minlength: 2,
-        maxlength: 30,
-        lowercase: true
+        maxlength: 30
     }, date: {
         type: Date,
         default: Date.now
