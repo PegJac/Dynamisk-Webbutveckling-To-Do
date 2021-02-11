@@ -8,11 +8,19 @@
 
 body {
     color: white;
-    background-image: linear-gradient(120deg, #000b19, #00172D, #001e3d, #00172D,#001023);
+    background-image: linear-gradient(120deg, #FEAC5E, #C779D0, #4BC0C8);
     min-height: 100vh;
     background-size: cover; 
     background-repeat: no-repeat;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+    @include tablets {
+        padding: 0 10%;
+    } 
+
+    @include desktops {
+        padding: 0 20%;
+    }  
 
     main {
         display: flex;
@@ -44,8 +52,8 @@ body {
                 margin: 5px 0;
 
                 &:nth-child(odd){
-                    background: rgba(10, 14, 34, 0.200);
-                    box-shadow: 0px 0px 5px 3px rgba(10, 14, 34, 0.200);
+                    background: rgba(177, 190, 255, 0.050);
+                    box-shadow: 0px 0px 5px 3px rgba(177, 190, 255, 0.050);
                 }
 
                 p {
@@ -75,7 +83,6 @@ body {
                     border-bottom: 2px solid rgba(184, 253, 255, 0.755);
                     color: rgba(255, 255, 255, 0.353);
                     background: none;
-                    box-shadow: 0px 8px 8px -4px rgba(184, 253, 255, 0);
                 }
 
                 button { 

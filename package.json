@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "nodemon main.js",
+    "sass": "node-sass scss/ -o public/style/ --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
